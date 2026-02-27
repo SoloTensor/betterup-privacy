@@ -4,86 +4,424 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Better Up — Privacy Policy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --green-500: #14a800;
+      --green-600: #11910a;
+      --green-700: #0d7a08;
+      --slate-50: #f8fafc;
+      --slate-100: #f1f5f9;
+      --slate-200: #e2e8f0;
+      --slate-300: #cbd5e1;
+      --slate-400: #94a3b8;
+      --slate-500: #64748b;
+      --slate-600: #475569;
+      --slate-700: #334155;
+      --slate-800: #1e293b;
+      --slate-900: #0f172a;
+    }
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f4f8; color: #2d3748; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 40px 16px 60px; }
-    .wrapper { background: #fff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.12); max-width: 720px; width: 100%; overflow: hidden; }
 
-    .header { background: linear-gradient(135deg, #14a800 0%, #12960a 100%); padding: 28px 36px; text-align: center; }
-    .header .logo { font-size: 28px; font-weight: 800; color: #fff; letter-spacing: 0.5px; text-shadow: 0 2px 6px rgba(0,0,0,0.2); }
-    .header .subtitle { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.85); font-weight: 500; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--slate-50);
+      color: var(--slate-700);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-    .body { padding: 32px 36px 28px; }
+    /* ── Hero ────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, var(--green-700) 0%, var(--green-500) 40%, #1cb806 100%);
+      padding: 56px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
 
-    .last-updated { font-size: 12px; color: #94a3b8; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #e2e8f0; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
 
-    .section { margin-bottom: 22px; }
-    .section h3 { font-size: 14px; font-weight: 700; color: #1a202c; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-    .section h3 .dot { width: 8px; height: 8px; border-radius: 50%; background: #14a800; flex-shrink: 0; }
-    .section p { font-size: 13px; color: #4a5568; line-height: 1.7; padding-left: 16px; margin-bottom: 6px; }
-    .section a { color: #14a800; font-weight: 600; text-decoration: none; }
-    .section a:hover { text-decoration: underline; }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -15%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 70%);
+      border-radius: 50%;
+    }
 
-    .footer { text-align: center; padding: 16px 36px 28px; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: 24px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 36px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    /* ── Container ───────────────────────────────── */
+    .container {
+      max-width: 720px;
+      margin: -28px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+      overflow: hidden;
+    }
+
+    .card-body {
+      padding: 36px 40px 32px;
+    }
+
+    @media (max-width: 600px) {
+      .card-body { padding: 28px 20px 24px; }
+      .hero h1 { font-size: 28px; }
+    }
+
+    .updated-date {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate-400);
+      background: var(--slate-100);
+      padding: 6px 14px;
+      border-radius: 8px;
+      margin-bottom: 32px;
+    }
+
+    .updated-date::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--green-500);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ── Sections ────────────────────────────────── */
+    .section {
+      margin-bottom: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .icon-data     { background: #ecfdf5; color: #059669; }
+    .icon-storage  { background: #eff6ff; color: #2563eb; }
+    .icon-analytics{ background: #fefce8; color: #ca8a04; }
+    .icon-perms    { background: #f5f3ff; color: #7c3aed; }
+    .icon-not      { background: #fef2f2; color: #dc2626; }
+    .icon-control  { background: #f0fdf4; color: #16a34a; }
+    .icon-contact  { background: #fdf4ff; color: #c026d3; }
+
+    .section h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--slate-800);
+      letter-spacing: -0.2px;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: var(--slate-600);
+      line-height: 1.75;
+      margin-bottom: 6px;
+    }
+
+    .section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .section a {
+      color: var(--green-500);
+      font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .section a:hover {
+      border-bottom-color: var(--green-500);
+    }
+
+    .perm-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--slate-50);
+      border: 1px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin-bottom: 8px;
+      font-size: 13px;
+      color: var(--slate-600);
+      line-height: 1.6;
+    }
+
+    .perm-item:last-child { margin-bottom: 0; }
+
+    .perm-tag {
+      flex-shrink: 0;
+      background: var(--slate-800);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.2px;
+      margin-top: 1px;
+    }
+
+    .not-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 500px) {
+      .not-list { grid-template-columns: 1fr; }
+    }
+
+    .not-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--slate-600);
+      background: #fef2f2;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid #fee2e2;
+    }
+
+    .not-item::before {
+      content: '✕';
+      font-size: 10px;
+      font-weight: 800;
+      color: #dc2626;
+      flex-shrink: 0;
+    }
+
+    /* ── Footer ──────────────────────────────────── */
+    .card-footer {
+      background: var(--slate-50);
+      border-top: 1px solid var(--slate-200);
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .card-footer-text {
+      font-size: 12px;
+      color: var(--slate-400);
+      font-weight: 500;
+    }
+
+    .card-footer-link {
+      font-size: 12px;
+      color: var(--green-500);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .card-footer-link:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-<div class="wrapper">
 
-  <div class="header">
-    <div class="logo">Better Up</div>
-    <div class="subtitle">Privacy Policy</div>
+  <div class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Official Document</div>
+      <h1>Privacy Policy</h1>
+      <p>Better Up — Upwork Client Intelligence Extension</p>
+    </div>
   </div>
 
-  <div class="body">
+  <div class="container">
+    <div class="card">
+      <div class="card-body">
 
-    <div class="last-updated">Last updated: February 2026</div>
+        <div class="updated-date">Last updated: February 2026</div>
 
-    <div class="section">
-      <h3><span class="dot"></span>Data We Access</h3>
-      <p>Better Up reads only publicly visible information on Upwork job pages you actively visit — client history, hiring stats, job activity, and posted skills. No login credentials, private messages, financial details, or personal data are ever accessed.</p>
+        <!-- 1 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-data">🔍</div>
+            <h2>Data We Access</h2>
+          </div>
+          <p>Better Up reads only publicly visible information on Upwork job pages you actively visit — client history, hiring stats, job activity, and posted skills. No login credentials, private messages, financial details, or personal data are ever accessed.</p>
+        </div>
+
+        <!-- 2 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-storage">💾</div>
+            <h2>Data Storage</h2>
+          </div>
+          <p>All extracted data is stored temporarily in your browser's local memory (via <code>chrome.storage.local</code>) and in-memory cache only. Data is associated with the browser tab and is cleared when the tab is closed or the extension is reloaded.</p>
+          <p>No data is ever written to external servers or persistent disk storage beyond what Chrome's storage API provides.</p>
+        </div>
+
+        <!-- 3 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-analytics">📊</div>
+            <h2>Anonymous Analytics</h2>
+          </div>
+          <p>Better Up sends a single anonymous event ("popup opened") to Google Analytics 4 each time the popup is opened. This event is associated with a randomly generated install ID — never your name, email, Upwork account, browsing history, or any identifiable information.</p>
+          <p>Google may estimate your approximate country or city as part of their standard analytics service. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for details.</p>
+        </div>
+
+        <!-- 4 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-perms">🔐</div>
+            <h2>Permissions Explained</h2>
+          </div>
+          <div class="perm-item">
+            <span class="perm-tag">activeTab</span>
+            <span>Allows the extension to interact with the Upwork job page you are currently viewing when you click the extension icon.</span>
+          </div>
+          <div class="perm-item">
+            <span class="perm-tag">scripting</span>
+            <span>Allows the extension to read publicly visible data from Upwork job pages to extract client information and hiring stats.</span>
+          </div>
+          <div class="perm-item">
+            <span class="perm-tag">storage</span>
+            <span>Stores your preferences (theme, settings) and the user agreement acceptance status locally in your browser.</span>
+          </div>
+          <div class="perm-item">
+            <span class="perm-tag">host_permissions</span>
+            <span>Limits the extension to only operate on Upwork job posting pages (upwork.com/jobs/*) — it cannot access any other websites.</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-not">🚫</div>
+            <h2>What We Do NOT Do</h2>
+          </div>
+          <div class="not-list">
+            <div class="not-item">Collect personal data</div>
+            <div class="not-item">Track your browsing</div>
+            <div class="not-item">Access your Upwork login</div>
+            <div class="not-item">Send data to servers</div>
+            <div class="not-item">Sell or share any data</div>
+            <div class="not-item">Access non-Upwork sites</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-control">⚙️</div>
+            <h2>Your Control</h2>
+          </div>
+          <p>You can clear all stored extension data at any time via <strong>chrome://extensions → Better Up → Details → Clear data</strong>.</p>
+          <p>You can uninstall the extension at any time to completely opt out of all data collection including anonymous analytics.</p>
+        </div>
+
+        <!-- 7 -->
+        <div class="section">
+          <div class="section-header">
+            <div class="section-icon icon-contact">💬</div>
+            <h2>Contact</h2>
+          </div>
+          <p>Questions about this privacy policy? Reach out via <a href="https://facebook.com/TryFrelancing/" target="_blank">TryFreelancing on Facebook</a>.</p>
+        </div>
+
+      </div>
+
+      <div class="card-footer">
+        <span class="card-footer-text">&copy; 2026 Better Up. All rights reserved.</span>
+        <a class="card-footer-link" href="https://facebook.com/TryFrelancing/" target="_blank">TryFreelancing ↗</a>
+      </div>
     </div>
-
-    <div class="section">
-      <h3><span class="dot"></span>Data Storage</h3>
-      <p>All extracted data is stored temporarily in your browser's local memory (via <code>chrome.storage.local</code>) and in-memory cache only. Data is associated with the browser tab and is cleared when the tab is closed or the extension is reloaded. No data is ever written to external servers or persistent disk storage beyond what Chrome's storage API provides.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="dot"></span>Anonymous Analytics</h3>
-      <p>Better Up sends a single anonymous event ("popup opened") to Google Analytics 4 each time the popup is opened. This event is associated with a randomly generated install ID — never your name, email, Upwork account, browsing history, or any identifiable information.</p>
-      <p>Google may estimate your approximate country or city as part of their standard analytics service. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for details.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="dot"></span>Permissions Explained</h3>
-      <p><strong>activeTab:</strong> Allows the extension to interact with the Upwork job page you are currently viewing when you click the extension icon.</p>
-      <p><strong>scripting:</strong> Allows the extension to read publicly visible data from Upwork job pages to extract client information and hiring stats.</p>
-      <p><strong>storage:</strong> Stores your preferences (theme, settings) and the user agreement acceptance status locally in your browser.</p>
-      <p><strong>host_permissions (upwork.com/jobs/*):</strong> Limits the extension to only operate on Upwork job posting pages — it cannot access any other websites.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="dot"></span>What We Do NOT Do</h3>
-      <p>We do not collect, transmit, sell, or share any personal data. We do not track your browsing activity outside of Upwork job pages. We do not access your Upwork account credentials. We do not store data on external servers.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="dot"></span>Your Control</h3>
-      <p>You can clear all stored extension data at any time via <strong>chrome://extensions → Better Up → Details → Clear data</strong>. You can uninstall the extension at any time to completely opt out of all data collection including anonymous analytics.</p>
-    </div>
-
-    <div class="section">
-      <h3><span class="dot"></span>Contact</h3>
-      <p>Questions about this privacy policy? Reach out via <a href="https://facebook.com/TryFrelancing/" target="_blank">TryFreelancing on Facebook</a>.</p>
-    </div>
-
   </div>
 
-  <div class="footer">
-    &copy; 2026 Better Up. All rights reserved.
-  </div>
-
-</div>
 </body>
 </html>
