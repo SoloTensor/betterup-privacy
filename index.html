@@ -341,8 +341,8 @@
             <div class="section-icon icon-storage">💾</div>
             <h2>Data Storage</h2>
           </div>
-          <p>All extracted data is stored temporarily in your browser's local memory and in-memory cache only. Data is associated with the browser tab and is cleared when the tab is closed or the extension is reloaded.</p>
-          <p>No data is ever written to external servers or persistent disk storage beyond what Chrome's storage API provides.</p>
+          <p>All extracted Upwork data is stored temporarily in your browser's local memory (via <code>chrome.storage.local</code>) and in-memory cache only. Data is associated with the browser tab and is cleared when the tab is closed or the extension is reloaded.</p>
+          <p>No Upwork or personal data is ever written to external servers or persistent disk storage beyond what Chrome's storage API provides.</p>
         </div>
 
         <!-- 3 -->
@@ -360,7 +360,7 @@
             <div class="section-icon icon-analytics">📊</div>
             <h2>Anonymous Analytics</h2>
           </div>
-          <p>Better Up receives anonymous heart beatwhen you use the extension. We never receive your name, email, Upwork account, browsing history, or any other identifiable information.</p>
+          <p>Better Up sends a single anonymous event ("popup opened") to Google Analytics 4 each time the popup is opened. This event is associated with a randomly generated install ID — never your name, email, Upwork account, browsing history, or any identifiable information.</p>
           <p>Google may estimate your approximate country or city as part of their standard analytics service. See <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> for details.</p>
         </div>
 
@@ -380,11 +380,11 @@
           </div>
           <div class="perm-item">
             <span class="perm-tag">storage</span>
-            <span>Keeps your preferences (theme, settings) and the user agreement acceptance in your browser.</span>
+            <span>Stores your preferences (theme, settings) and the user agreement acceptance status locally in your browser.</span>
           </div>
           <div class="perm-item">
             <span class="perm-tag">host_permissions</span>
-            <span>Limits the extension to only operate on Upwork job posting pages (upwork.com/jobs/*) — it cannot access any other websites.</span>
+            <span>Limits the extension to only operate on Upwork job posting pages (upwork.com/jobs/*) for client data extraction, and a single Google Apps Script endpoint used exclusively by the feedback form. It cannot access any other websites.</span>
           </div>
         </div>
 
@@ -392,16 +392,17 @@
         <div class="section">
           <div class="section-header">
             <div class="section-icon icon-not">🚫</div>
-            <h2>We Do NOT:</h2>
+            <h2>What We Do NOT Do</h2>
           </div>
           <div class="not-list">
             <div class="not-item">Collect personal data</div>
             <div class="not-item">Track your browsing</div>
             <div class="not-item">Access your Upwork login</div>
-            <div class="not-item">Send any identifying data to servers</div>
+            <div class="not-item">Send Upwork or personal data to servers</div>
             <div class="not-item">Sell or share any data</div>
             <div class="not-item">Access non-Upwork sites</div>
           </div>
+          <p style="font-size:12px; color:var(--slate-500); margin-top:12px; line-height:1.6;">The only data transmitted externally is a single anonymous "popup opened" event sent to Google Analytics using a randomly generated install ID — no Upwork data, no personal information, and no browsing activity.</p>
         </div>
 
         <!-- 6 -->
@@ -411,7 +412,7 @@
             <h2>Your Control</h2>
           </div>
           <p>You can clear all stored extension data at any time via <strong>chrome://extensions → Better Up → Details → Clear data</strong>.</p>
-          <p>You can uninstall the extension to completely opt out of all local data collection.</p>
+          <p>You can uninstall the extension at any time to completely opt out of all data collection including anonymous analytics.</p>
         </div>
 
         <!-- 7 -->
